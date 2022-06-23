@@ -65,3 +65,10 @@ class Client (models.Model) :
     def delete_client (self) :
         self.delete()
 
+class Qoute(models.Model):
+    location=models.CharField(max_length= 200)
+    floor_number=models.IntegerField(default=0)
+    business_name=models.CharField(max_length= 150)
+    contact_person=models.CharField(max_length= 100)
+    contact_no=models.IntegerField(default=+254)
+    date_of_site_visit=models.DateField()

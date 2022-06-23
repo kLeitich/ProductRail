@@ -92,3 +92,16 @@ class login_form(forms.Form):
             attrs={"class":"form-control"}
         )
     )
+
+class QouteForm(forms.ModelForm):
+
+     class Meta:
+        model = Qoute
+        fields = [
+            'business_name',
+            'location',
+            'floor_number',
+            'contact_person',
+            'contact_no',
+            'date_of_site_visit'
+        ]
