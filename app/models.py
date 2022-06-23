@@ -20,7 +20,6 @@ class User(AbstractUser):
 class Manager (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True,)
     profile_pic = models.ImageField(upload_to='Manager/ppic')
-    position=models.CharField(max_length=30)
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
     manager_no=models.IntegerField(default=0)
@@ -67,3 +66,4 @@ class Client (models.Model) :
         self.update()
     def delete_client (self) :
         self.delete()
+
