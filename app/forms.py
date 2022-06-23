@@ -19,7 +19,7 @@ class manager_signup(UserCreationForm):
             user = super().save(commit=False)
             user.first_name = self.cleaned_data.get('first_name')
             user.last_name = self.cleaned_data.get('last_name')
-            user.is_matron = True
+            user.is_manager  = True
             user.save()
             manager = Manager.objects.create(user=user)
             manager.email_address = self.cleaned_data.get('email_address')
@@ -46,7 +46,7 @@ class employee_signup(UserCreationForm):
         user = super().save(commit=False)
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')        
-        user.is_student = True
+        user.is_employee = True
         user.save()
         employee = Employee.objects.create(user=user)
         employee.registration_no = self.cleaned_data.get('reg_no')
@@ -74,7 +74,7 @@ class client_signup(UserCreationForm):
         user = super().save(commit=False)
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')        
-        user.is_student = True
+        user.is_employee = True
         user.save()
         client = Client.objects.create(user=user)
         client.registration_no = self.cleaned_data.get('reg_no')
