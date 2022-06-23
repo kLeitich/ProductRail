@@ -24,7 +24,7 @@ class manager_signup(UserCreationForm):
             manager = Manager.objects.create(user=user)
             manager.email_address = self.cleaned_data.get('email_address')
             manager.phone_number = self.cleaned_data.get('phone_number')
-            manager.profile_pic = self.cleaned_data.get('profile_pic')
+    
 
             return manager
         
@@ -35,7 +35,6 @@ class employee_signup(UserCreationForm):
     email = forms.EmailField()
     registration_no = forms.CharField(required=True)
     phone_number = forms.CharField(required=True)
-    profile_pic = forms.ImageField()
     gender = forms.CharField(required=True)
 
     class Meta(UserCreationForm.Meta):
@@ -52,7 +51,6 @@ class employee_signup(UserCreationForm):
         employee.registration_no = self.cleaned_data.get('reg_no')
         employee.email = self.cleaned_data.get('email')
         employee.phone_number = self.cleaned_data.get('phone_number')
-        employee.profile_pic = self.cleaned_data.get('profile_pic')
         employee.gender = self.cleaned_data.get('gender')
 
         return employee
@@ -63,7 +61,6 @@ class client_signup(UserCreationForm):
     email = forms.EmailField()
     registration_no = forms.CharField(required=True)
     phone_number = forms.CharField(required=True)
-    profile_pic = forms.ImageField()
     gender = forms.CharField(required=True)
 
     class Meta(UserCreationForm.Meta):
@@ -80,7 +77,6 @@ class client_signup(UserCreationForm):
         client.registration_no = self.cleaned_data.get('reg_no')
         client.email = self.cleaned_data.get('email')
         client.phone_number = self.cleaned_data.get('phone_number')
-        client.profile_pic = self.cleaned_data.get('profile_pic')
         client.gender = self.cleaned_data.get('gender')
 
         return client

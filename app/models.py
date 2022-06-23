@@ -1,3 +1,4 @@
+from re import T
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -19,7 +20,6 @@ class User(AbstractUser):
     
 class Manager (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True,)
-    profile_pic = models.ImageField(upload_to='Manager/ppic')
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
     manager_no=models.IntegerField(default=0)
@@ -36,7 +36,6 @@ class Manager (models.Model) :
 
 class Employee (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True)
-    profile_pic = models.ImageField(upload_to='employee/ppic')
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
     employee_no = models.IntegerField (default=0)
@@ -52,7 +51,6 @@ class Employee (models.Model) :
         self.delete()
 class Client (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True)
-    profile_pic = models.ImageField(upload_to='client/ppic')
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
     client_no = models.IntegerField (default=0)
