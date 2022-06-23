@@ -12,6 +12,38 @@
     {% endblock %}
 </head>
 <body>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-3">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <i class="bi bi-bank fs-1"></i>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gap-3">
+              <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <div class="text-end">
+                {% if user.is_authenticated %}
+                    <button type="button" class="btn btn-outline-light me-2">Welcome,{{user.username}}</button>
+                  <a href="{% url 'logout' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                {% else %}
+                <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                <a href="{% url 'register' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                {% endif %}
+              
+            </div>
+          </div>
+        </div>
+      </header>
     {% block content %}
     {% endblock %}
 
