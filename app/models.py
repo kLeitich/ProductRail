@@ -4,8 +4,9 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class User (AbstractUser):
     USERNAME_FIELD = 'username'
-    is_matron = models.BooleanField('matron status',default = False) 
-    is_student = models.BooleanField('student status',default = False) 
+    is_manager = models.BooleanField('manager status',default = False) 
+    is_employee = models.BooleanField('employee status',default = False) 
+    is_client = models.BooleanField('employee status',default = False) 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
