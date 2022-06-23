@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
-from app.forms import client_signup, employee_signup, login_form, manager_signup
+from app.forms import QouteForm, client_signup, employee_signup, login_form, manager_signup
 from .models import User
 from django.views.generic import CreateView
 from django.contrib.auth import authenticate,login
 from django.contrib import auth
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -72,3 +73,21 @@ def login_view(request):
 def logout(request):
     auth.logout(request)
     return redirect ('/')
+
+def qoutes(request):
+  current_user=request.user
+
+  if request.method == 'POST':
+    form = QouteForm(request.POST, request.FILES)
+    if form.is_valid():
+      post = form.save(commit=False)
+      post.user = current_user
+           
+      post.save()
+            
+
+      messages.success(request, f'Your qoute has been sent.')    
+      return redirect('posts')
+  else:
+    form=QouteForm()
+  return render(request,'qoutes.html',{'form':form})
