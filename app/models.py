@@ -2,13 +2,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class User (AbstractUser):
+class User(AbstractUser):
     USERNAME_FIELD = 'username'
     is_manager = models.BooleanField('manager status',default = False) 
     is_employee = models.BooleanField('employee status',default = False) 
     is_client = models.BooleanField('client status',default = False) 
     first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=50)
 
     def save_user (self) :
         self.save()
@@ -20,6 +20,7 @@ class User (AbstractUser):
 class Manager (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True,)
     profile_pic = models.ImageField(upload_to='Manager/ppic')
+    position=models.CharField(max_length=30)
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
     manager_no=models.IntegerField(default=0)
