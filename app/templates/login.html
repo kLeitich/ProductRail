@@ -1,8 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content%}
-<br><br>
-<div class="container" >
+<div class="container">
     <br>
 <form method="POST" accept-charset="utf-8">
     {% csrf_token %}
@@ -15,10 +14,14 @@
                         {% endfor %}
                     </div>
     {% endfor %}
-    <button type="submit" class="btn btn-warning btn-sm mr-4">SIGN UP</button>
-</form>
-Have an account? <br>
-<a class="btn btn-warning btn-sm mr-4"  href="{% url 'login_view'%}" >LOGIN HERE</a>
+<div class="text-center">
+    <button type="submit" class="btn btn-sm btn mt-4">Log In</button>
 </div>
+</form>
 <br>
+<div class="text-center">
+    Don't have an account? 
+<a class="nav-link" href="{% url 'signup'%}" ><small>Register Here</small></i></a>
+</div>
+</div>
 {% endblock %}
