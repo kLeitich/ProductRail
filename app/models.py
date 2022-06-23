@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User (AbstractUser):
@@ -15,35 +16,52 @@ class User (AbstractUser):
     def delete_user (self) :
         self.delete()
     
-class Matron (models.Model) :
+class Manager (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True,)
-    profile_pic = CloudinaryField ('image')
+    profile_pic = models.ImageField(upload_to='Manager/ppic')
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
+    manager_no=models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.user}'
 
-    def save_matron (self) :
+    def save_manager (self) :
         self.save()
-    def update_matron (self) :
+    def update_manager (self) :
         self.update()
-    def delete_matron (self) :
+    def delete_manager (self) :
         self.delete()
 
-class Student (models.Model) :
+class Employee (models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True)
-    profile_pic = CloudinaryField ('image')
+    profile_pic = models.ImageField(upload_to='employee/ppic')
     email = models.EmailField(blank=True)
     phone_number = models.CharField(max_length= 13)
-    registration_no = models.CharField (max_length=20)
+    employee_no = models.IntegerField (default=0)
 
     def __str__(self):
         return f'{self.user}'
 
-    def save_student (self) :
+    def save_employee (self) :
         self.save()
-    def update_student (self) :
+    def update_employee (self) :
         self.update()
-    def delete_student (self) :
+    def delete_employee (self) :
+        self.delete()
+class Client (models.Model) :
+    user = models.OneToOneField(User, on_delete=models.CASCADE , primary_key=True)
+    profile_pic = models.ImageField(upload_to='client/ppic')
+    email = models.EmailField(blank=True)
+    phone_number = models.CharField(max_length= 13)
+    client_no = models.IntegerField (default=0)
+
+    def __str__(self):
+        return f'{self.user}'
+
+    def save_client (self) :
+        self.save()
+    def update_client (self) :
+        self.update()
+    def delete_client (self) :
         self.delete()
