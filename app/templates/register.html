@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+  <h1><u>SIGN UP HERE</u></h1>
+  <button class="btn btn-primary"><a class="text-white"  href="{% url 'manager_signup'%}">MANAGER SIGN UP</a></button><br><br><br>
+  <button class="btn btn-primary"><a class="text-white" href="{% url 'employee_signup'%}">EMPLOYEE SIGN UP</a></button><br><br><br>
+  <button class="btn btn-primary"><a class="text-white" href="{% url 'client_signup'%}">CLIENT SIGN UP</a></button>
+
+
+</div>
+{%endblock%}
+
