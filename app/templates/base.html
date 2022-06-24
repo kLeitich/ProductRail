@@ -21,7 +21,7 @@
     
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gap-3">
               <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+              <li><a href="{% url 'qoutes'%}" class="nav-link px-2 text-white">Qoutes</a></li>
               <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
               <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
               <li><a href="#" class="nav-link px-2 text-white">About</a></li>
@@ -32,13 +32,13 @@
             </form>
     
             <div class="text-end">
-                <!-- {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <button type="button" class="btn btn-outline-light me-2">Welcome,{{user.username}}</button>
                   <a href="{% url 'logout' %}"><button type="button" class="btn btn-warning">Log out</button></a>
                 {% else %}
                 <a href="{% url 'login_view' %}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
                 <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
-                {% endif %} -->
+                {% endif %} 
               
             </div>
           </div>
