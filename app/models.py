@@ -1,4 +1,6 @@
-from re import T
+
+from datetime import date
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -71,4 +73,4 @@ class Qoute(models.Model):
     business_name=models.CharField(max_length= 150)
     contact_person=models.CharField(max_length= 100)
     contact_no=models.IntegerField(default=+254)
-    date_of_site_visit=models.DateField()
+    date_of_site_visit=models.DateField(("Date"), default=date.today)
