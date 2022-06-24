@@ -12,7 +12,8 @@ urlpatterns=[
     path('client_signup', views.client_signup_view.as_view(),name='client_signup'),
     path('login/',views.login_view,name="login_view"),
     path('logout',views.logout,name='logout'),
-    path('qoutes',views.qoutes,name='qoutes')
+    path('qoutes',views.qoutes,name='qoutes'),
+    path('pricing',views.pricing,name='pricing'),
     
 ]
 if settings.DEBUG:
